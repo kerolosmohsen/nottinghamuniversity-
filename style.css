@@ -50,6 +50,13 @@ button { color: inherit; }
 .note-star { color: var(--gold); font-size: 18px; line-height: 1; }
 .sidebar-cta { display: flex; align-items: center; justify-content: space-between; padding: 12px 13px; border-radius: 10px; color: var(--navy); background: var(--white); font-size: 12px; font-weight: 700; transition: background .2s ease; }
 .sidebar-cta:hover { background: var(--gold-light); }
+.sidebar-ghayah { display: flex; align-items: center; gap: 9px; padding: 9px; border: 1px solid rgba(190, 202, 146, .48); border-radius: 11px; color: var(--white); background: linear-gradient(120deg, rgba(111, 128, 70, .28), rgba(255, 255, 255, .045)); transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.sidebar-ghayah:hover { border-color: #cbd49b; background: rgba(111, 128, 70, .36); transform: translateY(-1px); }
+.sidebar-ghayah > img { width: 39px; height: 39px; flex: 0 0 auto; border: 1px solid rgba(190, 202, 146, .62); border-radius: 8px; background: #06050a; object-fit: cover; }
+.sidebar-ghayah-copy { display: grid; gap: 3px; min-width: 0; }
+.sidebar-ghayah-copy small { color: #b8bec8; font-size: 8px; line-height: 1.3; }
+.sidebar-ghayah-copy small:first-child { color: #c5cc94; font-weight: 700; letter-spacing: .14em; }
+.sidebar-ghayah-copy strong { color: white; font-size: 10px; line-height: 1.2; }
 .sidebar-foot { color: #85939e; font-size: 8px; letter-spacing: .12em; text-align: center; }
 .site-canvas { min-width: 0; flex: 1; padding: 10px clamp(12px, 2.5vw, 38px) 0; }
 .mobile-header { display: none; }
@@ -96,6 +103,22 @@ h1 em, h2 em { color: var(--gold); font-style: normal; }
 .stat-item strong { color: var(--navy); font-size: clamp(24px, 3vw, 36px); font-weight: 600; letter-spacing: -.06em; }
 .stat-item strong span { color: var(--gold); }
 .stat-item > span { color: var(--muted); font-size: 10px; }
+.ghayah-feature { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: clamp(22px, 4vw, 52px); align-items: center; min-height: 250px; margin-top: 22px; padding: clamp(26px, 4.2vw, 48px); overflow: hidden; border: 1px solid rgba(177, 187, 130, .4); border-radius: 21px; color: white; background: radial-gradient(ellipse at 100% 0%, rgba(111, 128, 70, .34), transparent 43%), linear-gradient(115deg, #111a17 0%, #202a21 58%, #35402a 100%); box-shadow: 0 18px 42px rgba(20, 31, 22, .2); }
+.ghayah-feature::before { position: absolute; right: -90px; bottom: -230px; width: 390px; height: 390px; border: 1px solid rgba(198, 207, 148, .22); border-radius: 50%; box-shadow: 0 0 0 42px rgba(198, 207, 148, .055), 0 0 0 84px rgba(198, 207, 148, .035); content: ''; pointer-events: none; }
+.ghayah-feature-brand, .ghayah-feature-copy { position: relative; z-index: 1; }
+.ghayah-feature-brand { display: grid; justify-items: center; gap: 12px; }
+.ghayah-feature-label { color: #c9d0a2; font-size: 8px; font-weight: 700; letter-spacing: .17em; text-align: center; }
+.ghayah-logo-frame { display: grid; width: 152px; height: 152px; place-items: center; padding: 7px; overflow: hidden; border: 1px solid rgba(194, 200, 149, .68); border-radius: 19px; background: #050409; box-shadow: 0 16px 40px rgba(0, 0, 0, .3), 0 0 35px rgba(153, 169, 91, .16); transition: transform .25s ease, box-shadow .25s ease; }
+.ghayah-logo-frame:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(0, 0, 0, .36), 0 0 42px rgba(171, 188, 103, .25); }
+.ghayah-feature-logo { width: 100%; height: 100%; border-radius: 12px; background: #050409; object-fit: contain; }
+.ghayah-feature-copy .eyebrow { margin-bottom: 11px; color: #d1d4c2; }
+.ghayah-feature-copy .eyebrow-dot { background: #c3cc8e; box-shadow: 0 0 0 4px rgba(195, 204, 142, .18); }
+.ghayah-feature-copy h2 { margin: 0 0 12px; color: white; font-size: clamp(30px, 3.8vw, 47px); font-weight: 600; letter-spacing: -.05em; line-height: 1.05; }
+.ghayah-feature-copy h2 em { color: #d2d9a1; }
+.ghayah-feature-copy > p:not(.eyebrow) { max-width: 620px; margin: 0; color: #d2d5df; font-size: clamp(12px, .65vw + 10px, 14px); line-height: 1.75; }
+.button-ghayah { margin-top: 20px; color: #182015; background: #c4ce8c; }
+.button-ghayah:hover { background: #d7e0a8; }
+.ghayah-outbound { display: block; margin-top: 9px; color: #c0c8b6; font-size: 9px; letter-spacing: .04em; }
 .section { margin-top: clamp(68px, 8.4vw, 116px); }
 .section-about { display: grid; grid-template-columns: 1fr .88fr; align-items: center; gap: clamp(34px, 6vw, 84px); }
 .photo-frame { position: relative; min-height: 350px; border-radius: 17px; overflow: hidden; background: #d3d2c8; }
@@ -604,6 +627,15 @@ h1 em, h2 em { color: var(--gold); font-style: normal; }
   .stat-item:first-child, .stat-item:nth-child(3) { padding-left: 9px; }
   .stat-item strong { font-size: 27px; }
   .stat-item > span { max-width: 130px; font-size: 8px; line-height: 1.45; }
+  .ghayah-feature { grid-template-columns: 1fr; gap: 18px; margin-top: 16px; padding: 23px 20px; text-align: center; }
+  .ghayah-feature-brand { grid-template-columns: 68px minmax(0, 1fr); justify-items: start; align-items: center; gap: 13px; }
+  .ghayah-feature-label { text-align: left; }
+  .ghayah-logo-frame { width: 68px; height: 68px; padding: 3px; border-radius: 12px; }
+  .ghayah-feature-logo { border-radius: 8px; }
+  .ghayah-feature-copy .eyebrow, .ghayah-feature-copy .button-row { justify-content: center; }
+  .ghayah-feature-copy > p:not(.eyebrow) { margin-inline: auto; }
+  .ghayah-feature-copy h2 { font-size: clamp(30px, 8vw, 39px); }
+  .button-ghayah { margin-top: 16px; }
   .section { margin-top: 65px; }
   .section-about, .overview-section, .intro-split, .leadership-section { grid-template-columns: 1fr; }
   .section-about { gap: 24px; }
