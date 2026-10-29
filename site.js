@@ -15,10 +15,6 @@ const pages = {
         <div class="hero-cut" aria-hidden="true"></div>
       </section>
       <section class="stats-strip" aria-label="University facts"><div class="stat-item"><strong>1881</strong><span>Our story begins</span></div><div class="stat-item"><strong>3</strong><span>Countries with campuses</span></div><div class="stat-item"><strong>40,000<span>+</span></strong><span>Students across our community</span></div><div class="stat-item"><strong>2</strong><span>International campuses</span></div></section>
-      <section class="ghayah-feature" aria-labelledby="ghayah-feature-title">
-        <div class="ghayah-feature-brand"><span class="ghayah-feature-label">FEATURED LEARNING RESOURCE</span><a class="ghayah-logo-frame" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ghayah International Academy"><img class="ghayah-feature-logo" src="assets/ghayah-logo.png" alt="Ghayah International Academy logo"></a></div>
-        <div class="ghayah-feature-copy"><p class="eyebrow"><span class="eyebrow-dot"></span>Professional learning</p><h2 id="ghayah-feature-title">Keep growing with <em>Ghayah.</em></h2><p>Explore practical programs in project management, human resources, business and finance through Ghayah International Academy.</p><a class="button button-ghayah" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer">Explore Ghayah Academy <span aria-hidden="true">↗</span></a><span class="ghayah-outbound">Opens ghayahacademy.com</span></div>
-      </section>
       <section class="section section-about">
         <div class="section-photo photo-frame"><img src="assets/trent-building.jpg" alt="The historic Trent Building surrounded by gardens"><span class="photo-stamp">A university<br>in motion <b>↗</b></span><span class="photo-credit">UNIVERSITY PARK · NOTTINGHAM</span></div>
         <div class="section-copy"><p class="eyebrow eyebrow-dark">Curiosity has a home</p><h2>Local roots.<br><em>Global outlook.</em></h2><p>University College Nottingham opened in 1881 to make technical and scientific learning available to local people. Today, that spirit of discovery connects students and researchers across the UK, Malaysia and China.</p><p>Different places, shared curiosity — and room to find your own direction.</p><a class="text-link" href="about.html">Meet Nottingham <span>↗</span></a></div>
@@ -178,9 +174,56 @@ const pageKey = document.body.dataset.page || 'home';
 const pageTitles = { home: 'Home', about: 'About', accreditations: 'Accreditations', programs: 'Programs', why: 'Why us', reviews: 'Student voices' };
 const pagePaths = { home: 'index.html', about: 'about.html', accreditations: 'accreditations.html', programs: 'programs.html', why: 'why-us.html', reviews: 'student-reviews.html' };
 
-nav.innerHTML = `<a class="sidebar-brand" href="index.html" aria-label="University of Nottingham home">${castleMark()}<span>THE UNIVERSITY<br><strong>OF NOTTINGHAM</strong></span></a><span class="nav-label">EXPLORE</span><nav>${navItems.map(([key, label, href, glyph]) => `<a class="nav-link ${pageKey === key ? 'is-current' : ''}" href="${href}" ${pageKey === key ? 'aria-current="page"' : ''}>${icon(glyph)}<span>${label}</span>${pageKey === key ? '<i></i>' : ''}</a>`).join('')}</nav><div class="sidebar-bottom"><div class="sidebar-note"><span class="note-star">✳</span><p>Curious minds<br>make a difference.</p></div><a class="sidebar-cta" href="programs.html">Find your course <span>↗</span></a><a class="sidebar-ghayah" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer"><img src="assets/ghayah-logo.png" alt=""><span class="sidebar-ghayah-copy"><small>EXPLORE</small><strong>Ghayah Academy</strong><small>Professional courses ↗</small></span></a><span class="sidebar-foot">NOTTINGHAM · MALAYSIA · CHINA</span></div>`;
+nav.innerHTML = `<a class="sidebar-brand" href="index.html" aria-label="University of Nottingham home">${castleMark()}<span>THE UNIVERSITY<br><strong>OF NOTTINGHAM</strong></span></a><span class="nav-label">EXPLORE</span><nav>${navItems.map(([key, label, href, glyph]) => `<a class="nav-link ${pageKey === key ? 'is-current' : ''}" href="${href}" ${pageKey === key ? 'aria-current="page"' : ''}>${icon(glyph)}<span>${label}</span>${pageKey === key ? '<i></i>' : ''}</a>`).join('')}</nav><div class="sidebar-bottom"><div class="sidebar-note"><span class="note-star">✳</span><p>Curious minds<br>make a difference.</p></div><a class="sidebar-cta" href="programs.html">Find your course <span>↗</span></a><span class="sidebar-foot">NOTTINGHAM · MALAYSIA · CHINA</span></div>`;
 
-document.getElementById('main-content').innerHTML = (pages[pageKey] || pages.home)();
+const mainContent = document.getElementById('main-content');
+mainContent.innerHTML = (pages[pageKey] || pages.home)();
+
+const ghayahPromotions = {
+  home: {
+    after: '.home-hero',
+    style: 'home',
+    heading: 'Professional learning with Ghayah.',
+    description: 'Ghayah International Academy offers professional learning in project management, human resources, business and finance.'
+  },
+  about: {
+    after: '.vision-section',
+    style: 'about',
+    heading: 'Meet Ghayah International Academy.',
+    description: 'An independent academy offering practical learning in management, human resources, business and finance.'
+  },
+  accreditations: {
+    after: '.intro-split',
+    style: 'accreditations',
+    heading: 'Explore professional learning.',
+    description: 'Ghayah International Academy provides courses in areas including project management, human resources, business and finance.'
+  },
+  programs: {
+    after: '.programs-section',
+    style: 'programs',
+    heading: 'Build practical skills with Ghayah.',
+    description: 'Explore professional courses from Ghayah International Academy, including project management, human resources, business and finance.'
+  },
+  why: {
+    after: '.differentiators .feature-story',
+    style: 'why',
+    heading: 'A separate destination for professional learning.',
+    description: 'Ghayah International Academy offers practical courses in project management, human resources, business and finance.'
+  },
+  reviews: {
+    after: '.rating-section',
+    style: 'reviews',
+    heading: 'Continue your learning journey.',
+    description: 'Discover professional programs in project management, human resources, business and finance at Ghayah International Academy.'
+  }
+};
+
+const ghayahPromotion = ghayahPromotions[pageKey];
+if (ghayahPromotion) {
+  const placement = mainContent.querySelector(ghayahPromotion.after);
+  if (!placement) throw new Error(`Ghayah promotion placement not found for page "${pageKey}".`);
+  placement.insertAdjacentHTML('afterend', `<section class="ghayah-feature ghayah-feature--${ghayahPromotion.style}" aria-label="External learning resource: Ghayah International Academy"><div class="ghayah-feature-brand"><span class="ghayah-feature-label">INDEPENDENT LEARNING ACADEMY</span><a class="ghayah-logo-frame" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ghayah International Academy website"><img class="ghayah-feature-logo" src="assets/ghayah-logo.png" alt="Ghayah International Academy logo"></a></div><div class="ghayah-feature-copy"><p class="eyebrow"><span class="eyebrow-dot"></span>External learning resource</p><h2>${ghayahPromotion.heading}</h2><p>${ghayahPromotion.description}</p><a class="button button-ghayah" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer">Visit Ghayah Academy <span aria-hidden="true">↗</span></a><span class="ghayah-outbound">Independent academy · opens ghayahacademy.com</span></div></section>`);
+}
 
 document.getElementById('site-footer').innerHTML = `<div class="footer-main"><div class="footer-brand">${castleMark()}<span>THE UNIVERSITY<br><strong>OF NOTTINGHAM</strong></span><p>Knowledge moves us forward.</p></div><div class="footer-column"><strong>Explore</strong><a href="about.html">About us</a><a href="programs.html">Study areas</a><a href="accreditations.html">Quality & accreditation</a><a href="why-us.html">Why Nottingham</a></div></div><div class="footer-bottom"><span>© University of Nottingham · Concept website</span><span>Photography: University of Nottingham and Unsplash</span><a href="#main-content">Back to top ↑</a></div>`;
 
