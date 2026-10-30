@@ -96,39 +96,6 @@ h1 em, h2 em { color: var(--gold); font-style: normal; }
 .stat-item strong { color: var(--navy); font-size: clamp(24px, 3vw, 36px); font-weight: 600; letter-spacing: -.06em; }
 .stat-item strong span { color: var(--gold); }
 .stat-item > span { color: var(--muted); font-size: 10px; }
-.ghayah-feature { position: relative; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(22px, 4vw, 52px); align-items: center; min-height: 290px; margin-top: clamp(30px, 5vw, 60px); padding: clamp(28px, 4.5vw, 54px); overflow: hidden; border: 1px solid rgba(245, 168, 0, .45); border-radius: 21px; color: white; background: radial-gradient(ellipse at 100% 0%, rgba(245, 168, 0, .16), transparent 43%), linear-gradient(115deg, #0d1b2a 0%, #13293d 58%, #1e3b52 100%); box-shadow: 0 18px 42px rgba(13, 27, 42, .2); }
-.ghayah-feature::before { position: absolute; right: -90px; bottom: -230px; width: 390px; height: 390px; border: 1px solid rgba(249, 199, 91, .24); border-radius: 50%; box-shadow: 0 0 0 42px rgba(249, 199, 91, .055), 0 0 0 84px rgba(249, 199, 91, .035); content: ''; pointer-events: none; }
-.ghayah-feature-brand, .ghayah-feature-copy { position: relative; z-index: 1; }
-.ghayah-feature-brand { display: grid; justify-items: center; gap: 12px; }
-.ghayah-feature-label { color: var(--gold-light); font-size: 8px; font-weight: 700; letter-spacing: .17em; text-align: center; }
-.ghayah-logo-frame { display: grid; width: 200px; height: 200px; place-items: center; padding: 8px; overflow: hidden; border: 1px solid rgba(245, 168, 0, .72); border-radius: 19px; background: #050409; box-shadow: 0 16px 40px rgba(0, 0, 0, .3), 0 0 35px rgba(245, 168, 0, .14); transition: transform .25s ease, box-shadow .25s ease; }
-.ghayah-logo-frame:hover { transform: translateY(-3px); box-shadow: 0 20px 46px rgba(0, 0, 0, .36), 0 0 42px rgba(245, 168, 0, .25); }
-.ghayah-feature-logo { width: 100%; height: 100%; border-radius: 12px; background: #050409; object-fit: contain; }
-.ghayah-feature-copy .eyebrow { margin-bottom: 11px; color: #d2dbe3; }
-.ghayah-feature-copy .eyebrow-dot { background: var(--gold); box-shadow: 0 0 0 4px rgba(245, 168, 0, .18); }
-.ghayah-feature-copy h2 { margin: 0 0 12px; color: white; font-size: clamp(30px, 3.8vw, 47px); font-weight: 600; letter-spacing: -.05em; line-height: 1.05; }
-.ghayah-feature-copy h2 em { color: var(--gold-light); }
-.ghayah-feature-copy > p:not(.eyebrow) { max-width: 620px; margin: 0; color: #d2d5df; font-size: clamp(12px, .65vw + 10px, 14px); line-height: 1.75; }
-.button-ghayah { margin-top: 20px; color: var(--navy); background: var(--gold); }
-.button-ghayah:hover { background: var(--gold-light); }
-.ghayah-outbound { display: block; margin-top: 9px; color: #c7d0d8; font-size: 9px; letter-spacing: .04em; }
-.ghayah-feature--about { grid-template-columns: minmax(0, 1fr) 220px; }
-.ghayah-feature--about .ghayah-feature-brand { grid-column: 2; grid-row: 1; }
-.ghayah-feature--about .ghayah-feature-copy { grid-column: 1; grid-row: 1; }
-.ghayah-feature--accreditations { border-color: rgba(245, 168, 0, .45); color: var(--ink); background: radial-gradient(ellipse at 0% 100%, rgba(245, 168, 0, .17), transparent 48%), linear-gradient(120deg, #fff, var(--paper)); }
-.ghayah-feature--accreditations .ghayah-feature-label,
-.ghayah-feature--accreditations .ghayah-feature-copy .eyebrow,
-.ghayah-feature--accreditations .ghayah-feature-copy > p:not(.eyebrow),
-.ghayah-feature--accreditations .ghayah-outbound { color: var(--muted); }
-.ghayah-feature--accreditations .ghayah-feature-copy h2 { color: var(--navy); }
-.ghayah-feature--accreditations .ghayah-feature-copy h2 em { color: #a36d00; }
-.ghayah-feature--accreditations .ghayah-feature-copy .eyebrow-dot { background: var(--gold); box-shadow: 0 0 0 4px rgba(245, 168, 0, .15); }
-.ghayah-feature--accreditations .button-ghayah { color: var(--navy); background: var(--gold); }
-.ghayah-feature--programs { grid-template-columns: 200px minmax(0, 1fr); border-color: rgba(249, 199, 91, .62); border-radius: 34px 14px 34px 14px; background: radial-gradient(ellipse at 0% 100%, rgba(249, 199, 91, .15), transparent 45%), linear-gradient(120deg, #0d1b2a, #1e3b52); }
-.ghayah-feature--why { margin-inline: clamp(0px, 5vw, 68px); }
-.ghayah-feature--reviews { grid-template-columns: 240px minmax(0, 1fr); border-radius: 80px 20px 20px 80px; background: radial-gradient(ellipse at 15% 50%, rgba(245, 168, 0, .15), transparent 42%), linear-gradient(120deg, #13293d, #0d1b2a 68%); }
-.ghayah-feature--reviews .ghayah-logo-frame { border-radius: 50%; }
-.ghayah-feature--reviews .ghayah-feature-logo { border-radius: 50%; }
 .section { margin-top: clamp(68px, 8.4vw, 116px); }
 .section-about { display: grid; grid-template-columns: 1fr .88fr; align-items: center; gap: clamp(34px, 6vw, 84px); }
 .photo-frame { position: relative; min-height: 350px; border-radius: 17px; overflow: hidden; background: #d3d2c8; }
@@ -637,18 +604,6 @@ h1 em, h2 em { color: var(--gold); font-style: normal; }
   .stat-item:first-child, .stat-item:nth-child(3) { padding-left: 9px; }
   .stat-item strong { font-size: 27px; }
   .stat-item > span { max-width: 130px; font-size: 8px; line-height: 1.45; }
-  .ghayah-feature, .ghayah-feature--about, .ghayah-feature--programs, .ghayah-feature--reviews { grid-template-columns: 1fr; gap: 22px; margin: 28px 0 0; padding: 25px 22px; border-radius: 18px; text-align: center; }
-  .ghayah-feature-brand, .ghayah-feature--about .ghayah-feature-brand { grid-column: 1; grid-row: 1; grid-template-columns: 116px minmax(0, 1fr); justify-items: start; align-items: center; gap: 16px; }
-  .ghayah-feature-copy, .ghayah-feature--about .ghayah-feature-copy { grid-column: 1; grid-row: 2; }
-  .ghayah-feature-label { text-align: left; }
-  .ghayah-logo-frame { width: 116px; height: 116px; padding: 5px; border-radius: 13px; }
-  .ghayah-feature-logo { border-radius: 8px; }
-  .ghayah-feature--reviews .ghayah-logo-frame, .ghayah-feature--reviews .ghayah-feature-logo { border-radius: 50%; }
-  .ghayah-feature--why { margin-inline: 0; }
-  .ghayah-feature-copy .eyebrow, .ghayah-feature-copy .button-row { justify-content: center; }
-  .ghayah-feature-copy > p:not(.eyebrow) { margin-inline: auto; }
-  .ghayah-feature-copy h2 { font-size: clamp(30px, 8vw, 39px); }
-  .button-ghayah { margin-top: 16px; }
   .section { margin-top: 65px; }
   .section-about, .overview-section, .intro-split, .leadership-section { grid-template-columns: 1fr; }
   .section-about { gap: 24px; }

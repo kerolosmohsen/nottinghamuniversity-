@@ -179,52 +179,6 @@ nav.innerHTML = `<a class="sidebar-brand" href="index.html" aria-label="Universi
 const mainContent = document.getElementById('main-content');
 mainContent.innerHTML = (pages[pageKey] || pages.home)();
 
-const ghayahPromotions = {
-  home: {
-    after: '.home-hero',
-    style: 'home',
-    heading: 'Professional learning with Ghayah.',
-    description: 'Ghayah International Academy offers professional learning in project management, human resources, business and finance.'
-  },
-  about: {
-    after: '.vision-section',
-    style: 'about',
-    heading: 'Meet Ghayah International Academy.',
-    description: 'An independent academy offering practical learning in management, human resources, business and finance.'
-  },
-  accreditations: {
-    after: '.intro-split',
-    style: 'accreditations',
-    heading: 'Explore professional learning.',
-    description: 'Ghayah International Academy provides courses in areas including project management, human resources, business and finance.'
-  },
-  programs: {
-    after: '.programs-section',
-    style: 'programs',
-    heading: 'Build practical skills with Ghayah.',
-    description: 'Explore professional courses from Ghayah International Academy, including project management, human resources, business and finance.'
-  },
-  why: {
-    after: '.differentiators .feature-story',
-    style: 'why',
-    heading: 'A separate destination for professional learning.',
-    description: 'Ghayah International Academy offers practical courses in project management, human resources, business and finance.'
-  },
-  reviews: {
-    after: '.rating-section',
-    style: 'reviews',
-    heading: 'Continue your learning journey.',
-    description: 'Discover professional programs in project management, human resources, business and finance at Ghayah International Academy.'
-  }
-};
-
-const ghayahPromotion = ghayahPromotions[pageKey];
-if (ghayahPromotion) {
-  const placement = mainContent.querySelector(ghayahPromotion.after);
-  if (!placement) throw new Error(`Ghayah promotion placement not found for page "${pageKey}".`);
-  placement.insertAdjacentHTML('afterend', `<section class="ghayah-feature ghayah-feature--${ghayahPromotion.style}" aria-label="External learning resource: Ghayah International Academy"><div class="ghayah-feature-brand"><span class="ghayah-feature-label">INDEPENDENT LEARNING ACADEMY</span><a class="ghayah-logo-frame" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ghayah International Academy website"><img class="ghayah-feature-logo" src="assets/ghayah-logo.png" alt="Ghayah International Academy logo"></a></div><div class="ghayah-feature-copy"><p class="eyebrow"><span class="eyebrow-dot"></span>External learning resource</p><h2>${ghayahPromotion.heading}</h2><p>${ghayahPromotion.description}</p><a class="button button-ghayah" href="https://ghayahacademy.com/" target="_blank" rel="noopener noreferrer">Visit Ghayah Academy <span aria-hidden="true">↗</span></a><span class="ghayah-outbound">Independent academy · opens ghayahacademy.com</span></div></section>`);
-}
-
 document.getElementById('site-footer').innerHTML = `<div class="footer-main"><div class="footer-brand">${castleMark()}<span>THE UNIVERSITY<br><strong>OF NOTTINGHAM</strong></span><p>Knowledge moves us forward.</p></div><div class="footer-column"><strong>Explore</strong><a href="about.html">About us</a><a href="programs.html">Study areas</a><a href="accreditations.html">Quality & accreditation</a><a href="why-us.html">Why Nottingham</a></div></div><div class="footer-bottom"><span>© University of Nottingham · Concept website</span><span>Photography: University of Nottingham and Unsplash</span><a href="#main-content">Back to top ↑</a></div>`;
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -316,7 +270,7 @@ if (!prefersLessMotion) {
     '.program-card', '.steps-grid article', '.story-image', '.story-copy', '.map-card', '.partner-grid span',
     '.testimonial-large', '.review-feature', '.review-grid article', '.video-card', '.review-number-grid > div',
     '.cta-band', '.gold-cta', '.scholarship-band', '.leadership-photo', '.leadership-copy',
-    '.application-section', '.ghayah-feature', '.footer-main'
+    '.application-section', '.footer-main'
   ].join(',');
   const revealTargets = [...document.querySelectorAll(revealSelector)];
   revealTargets.forEach((element, index) => {
